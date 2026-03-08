@@ -1,11 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'screens/main_screen.dart';
-import 'services/gps_service.dart';
-import 'services/camera_service.dart';
-import 'services/speed_advisor_service.dart';
-import 'services/conversation_service.dart';
-import 'services/settings_service.dart';
 
 void main() {
   runApp(const SmartDriverApp());
@@ -16,22 +9,58 @@ class SmartDriverApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => GPSService()),
-        ChangeNotifierProvider(create: (_) => CameraService()),
-        ChangeNotifierProvider(create: (_) => SpeedAdvisorService()),
-        ChangeNotifierProvider(create: (_) => ConversationService()),
-        ChangeNotifierProvider(create: (_) => SettingsService()),
-      ],
-      child: MaterialApp(
-        title: 'Умный Водитель 2.0',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          useMaterial3: true,
+    return MaterialApp(
+      title: 'Умный Водитель 2.0',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      home: const HomeScreen(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Умный Водитель 2.0'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.directions_car,
+              size: 100,
+              color: Colors.blue,
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Умный Водитель 2.0',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Версия 1.0.0',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+            const SizedBox(height: 40),
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.play_arrow),
+              label: const Text('Начать поездку'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              ),
+            ),
+          ],
         ),
-        home: const MainScreen(),
-        debugShowCheckedModeBanner: false,
       ),
     );
   }

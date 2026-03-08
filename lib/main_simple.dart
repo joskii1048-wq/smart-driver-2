@@ -15,21 +15,14 @@ class SmartDriverApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MainScreen(),
+      home: const HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  int _speed = 0;
-  bool _companionEnabled = false;
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,52 +35,29 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'ДЕМО ВЕРСИЯ',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 40),
-            Text(
-              '$_speed',
-              style: const TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
-            ),
-            const Text(
-              'км/ч',
-              style: TextStyle(fontSize: 24),
-            ),
-            const SizedBox(height: 40),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  _speed = (_speed + 10) % 150;
-                });
-              },
-              child: const Text('+ 10 км/ч'),
+            const Icon(
+              Icons.directions_car,
+              size: 100,
+              color: Colors.blue,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  _companionEnabled = !_companionEnabled;
-                });
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(_companionEnabled 
-                      ? '🗣️ Собеседник включен!' 
-                      : 'Собеседник выключен'),
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: _companionEnabled ? Colors.green : Colors.grey,
-              ),
-              child: const Text('🗣️ Собеседник'),
+            const Text(
+              'Умный Водитель 2.0',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Версия 1.0.0',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
             const SizedBox(height: 40),
-            const Text(
-              'Для полной версии используйте Codemagic:\nhttps://codemagic.io',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12, color: Colors.grey),
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.play_arrow),
+              label: const Text('Начать поездку'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              ),
             ),
           ],
         ),
