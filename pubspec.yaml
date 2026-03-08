@@ -32,8 +32,8 @@ dependencies:
   # Фоновая работа
   workmanager: ^0.5.2
   
-  # Overlay виджет (Android)
-  flutter_overlay_window: ^0.4.6
+  # Overlay виджет (Android) - закомментировано для быстрой сборки
+  # flutter_overlay_window: ^0.4.6
   
   # UI
   cupertino_icons: ^1.0.6

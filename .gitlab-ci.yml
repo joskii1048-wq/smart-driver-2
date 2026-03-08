@@ -1,0 +1,27 @@
+image: ghcr.io/cirruslabs/flutter:3.19.0
+
+stages:
+  - build
+
+variables:
+  ANDROID_COMPILE_SDK: "34"
+  ANDROID_BUILD_TOOLS: "34.0.0"
+  ANDROID_SDK_TOOLS: "11076708"
+
+before_script:
+  - flutter doctor -v
+  - flutter pub get
+
+build_apk:
+  stage: build
+  script:
+    - flutter build apk --release
+  artifacts:
+    name: "smart-driver-2-${CI_COMMIT_SHORT_SHA}"
+    paths:
+      - build/app/outputs/flutter-apk/app-release.apk
+    expire_in: 1 week
+  only:
+    - main
+    - master
+  timeout: 30m

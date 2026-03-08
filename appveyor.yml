@@ -1,0 +1,19 @@
+version: 1.0.{build}
+
+environment:
+  FLUTTER_VERSION: 3.16.0
+
+install:
+  - git clone https://github.com/flutter/flutter.git -b stable --depth 1
+  - set PATH=%PATH%;%APPVEYOR_BUILD_FOLDER%\flutter\bin
+  - flutter doctor -v
+  - flutter pub get
+
+build_script:
+  - flutter build apk --release
+
+artifacts:
+  - path: build/app/outputs/flutter-apk/app-release.apk
+    name: smart-driver-2.apk
+
+deploy: off
