@@ -1,5 +1,5 @@
 name: smart_driver_2
-description: Умный Водитель 2.0
+description: Умный Водитель 2.0 - навигатор с умным собеседником
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
   cupertino_icons: ^1.0.6
 
 dev_dependencies:
@@ -18,3 +19,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  
+  assets:
+    - assets/jokes.json
+    - assets/cameras.json
