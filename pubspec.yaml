@@ -1,0 +1,59 @@
+name: smart_driver_2
+description: Умный Водитель 2.0 - навигатор с умным собеседником
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # GPS и локация
+  geolocator: ^10.1.0
+  permission_handler: ^11.0.1
+  
+  # Карты
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  
+  # TTS (Text-to-Speech)
+  flutter_tts: ^4.0.2
+  
+  # Локальная БД
+  sqflite: ^2.3.0
+  path_provider: ^2.1.1
+  shared_preferences: ^2.2.2
+  
+  # HTTP запросы
+  http: ^1.1.0
+  
+  # Фоновая работа
+  workmanager: ^0.5.2
+  
+  # Overlay виджет (Android)
+  flutter_overlay_window: ^0.4.6
+  
+  # UI
+  cupertino_icons: ^1.0.6
+  
+  # State management
+  provider: ^6.1.1
+  
+  # JSON
+  json_annotation: ^4.8.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.7
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/jokes.json
+    - assets/cameras.json

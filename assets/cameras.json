@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "lat": 57.8724,
+    "lon": 39.5339,
+    "speed_limit": 60,
+    "type": "speed",
+    "direction": "south",
+    "location": "Тутаев, выезд"
+  },
+  {
+    "id": 2,
+    "lat": 57.6264,
+    "lon": 39.8939,
+    "speed_limit": 90,
+    "type": "speed",
+    "direction": "south",
+    "location": "Ярославль, въезд"
+  },
+  {
+    "id": 3,
+    "lat": 57.1867,
+    "lon": 39.4108,
+    "speed_limit": 90,
+    "type": "speed",
+    "direction": "south",
+    "location": "Ростов Великий"
+  },
+  {
+    "id": 4,
+    "lat": 56.7386,
+    "lon": 38.8539,
+    "speed_limit": 60,
+    "type": "speed",
+    "direction": "south",
+    "location": "Переславль-Залесский"
+  },
+  {
+    "id": 5,
+    "lat": 56.3141,
+    "lon": 38.1377,
+    "speed_limit": 90,
+    "type": "speed",
+    "direction": "south",
+    "location": "Сергиев Посад"
+  },
+  {
+    "id": 6,
+    "lat": 55.9116,
+    "lon": 37.7307,
+    "speed_limit": 110,
+    "type": "speed",
+    "direction": "south",
+    "location": "МКАД, север"
+  },
+  {
+    "id": 7,
+    "lat": 55.7558,
+    "lon": 37.6173,
+    "speed_limit": 60,
+    "type": "speed",
+    "direction": "all",
+    "location": "Москва, центр"
+  }
+]
