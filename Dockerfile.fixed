@@ -1,0 +1,21 @@
+# Оптимизированный Dockerfile для сборки Flutter APK (БЕЗ pubspec.lock)
+FROM cirrusci/flutter:stable
+
+WORKDIR /build
+
+# Копируем только pubspec.yaml (lock создастся автоматически)
+COPY pubspec.yaml ./
+
+# Копируем исходники
+COPY lib ./lib
+COPY android ./android
+COPY assets ./assets
+
+# Устанавливаем зависимости (создаст pubspec.lock)
+RUN flutter pub get
+
+# Собираем APK
+RUN flutter build apk --release --no-tree-shake-icons
+
+# Результат будет в /build/build/app/outputs/flutter-apk/app-release.apk
+CMD ["echo", "APK готов!"]

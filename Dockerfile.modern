@@ -1,0 +1,20 @@
+# Современный Dockerfile с Flutter 3.16+ (Dart 3.0+)
+FROM ghcr.io/cirruslabs/flutter:3.16.0
+
+WORKDIR /build
+
+# Копируем только pubspec.yaml
+COPY pubspec.yaml ./
+
+# Копируем исходники
+COPY lib ./lib
+COPY android ./android
+COPY assets ./assets
+
+# Устанавливаем зависимости
+RUN flutter pub get
+
+# Собираем APK (release mode)
+RUN flutter build apk --release --no-tree-shake-icons --verbose
+
+# Результат: /build/build/app/outputs/flutter-apk/app-release.apk

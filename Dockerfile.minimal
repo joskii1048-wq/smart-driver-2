@@ -1,0 +1,18 @@
+# Минимальный Dockerfile для сборки Flutter APK
+FROM cirrusci/flutter:stable
+
+WORKDIR /build
+
+# Копируем только необходимые файлы
+COPY pubspec.yaml pubspec.lock ./
+COPY lib ./lib
+COPY android ./android
+COPY assets ./assets
+
+# Устанавливаем зависимости
+RUN flutter pub get
+
+# Собираем APK
+RUN flutter build apk --release --no-tree-shake-icons
+
+# Результат будет в /build/build/app/outputs/flutter-apk/app-release.apk
